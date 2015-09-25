@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Welcome</title>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<link rel="stylesheet"
+	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css"
+	type="text/css" media="all" />
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../bootstrap/css/signin.css" rel="stylesheet">
+<script src="../js/login.js"></script>
+<script src="../js/jExpand.js"></script>
+<!-- 
+<style>
+table { border-collapse: separate; border-spacing: 10px; }
+</style>
+-->
+<style>
+td a {
+	display: block;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<!-- The Logo comes here -->
+			<!-- Welcome!!  -->
+		</header>
+		<section id="login" hidden>
+			<div class="container">
+				<form id="login-form" class="form-signin" method="post" action="">
+					<div id="message" class="text-success login"></div>
+					<h2 class="form-signin-heading">Login To Continue</h2>
+					<div class="fieldgroup">
+						<label for="login_email" class="sr-only">Enter Email:</label> <input
+							type="email" id="login_email" class="form-control"
+							required="required" placeholder="Email address" /><br>
+					</div>
+					<div class="fieldgroup">
+						<label for="login_password" class="sr-only">Enter
+							Password:</label> <input type="password" class="form-control"
+							id="login_password" required="required" placeholder="Password" />
+						<br />
+					</div>
+					<div class="fieldgroup">
+						<input id="login" type="button" value="Login"
+							class="btn btn-lg btn-primary btn-block" onclick="invokeLogin()" />
+					</div>
+					<div>
+						<div id="login_result" class="text-danger login"></div>
+					</div>
+					<div class="fieldgroup">
+						<label class="register-link"> New? <a
+							href="javascript:openRegister()">Register Here</a></label>
+					</div>
+
+				</form>
+
+			</div>
+		</section>
+		<section id="register" hidden>
+			<form id="register-form" class="form-signin" method="post" action="">
+				<h2 class="form-signin-heading">Register</h2>
+				<div class="fieldgroup">
+					<label for="register_name" class="sr-only">Enter Name:</label> <input
+						type="text" id="register_name" required="required"
+						class="form-control" placeholder="Name" /><br>
+				</div>
+				<div class="fieldgroup">
+					<label for="register_email" class="sr-only">Enter Email:</label> <input
+						type="email" id="register_email" required="required"
+						class="form-control" placeholder="Email address" /><br>
+				</div>
+				<div class="fieldgroup">
+					<label for="register_password" class="sr-only">Enter
+						Password:</label> <input type="password" id="register_password"
+						required="required" class="form-control" placeholder="Password" />
+					<br />
+				</div>
+				<div class="fieldgroup">
+					<label for="register_confirmPassword" class="sr-only">Confirm
+						Password:</label> <input type="password" id="register_confirmPassword"
+						required="required" class="form-control"
+						placeholder="Confirm Password" /> <br />
+				</div>
+				<div class="fieldgroup">
+					<input id="register" type="button" value="Register"
+						class="btn btn-lg btn-primary btn-block"
+						onclick="invokeRegister()" />
+				</div>
+				<div>
+					<div id="register_result" class="text-danger login"></div>
+				</div>
+				<div>
+					<div id="register_success" class="text-success login"></div>
+				</div>
+				<div class="fieldgroup">
+					<label class="register-link"> <a
+						href="javascript:closeRegister()">Proceed to Login</a></label>
+				</div>
+			</form>
+		</section>
+		<section id="home">
+
+			<button type="button" class="btn btn-default btn-lg"
+				onclick="toggleSettings()">
+				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+			</button>
+			<div id="settings" hidden>
+				<div class="container">
+
+					<form action="" class="form-settings" id="settings-form">
+						<h2 class="form-signin-heading">Add Account</h2>
+						<div class="form-group">
+							<label for="settings_email"> Email Address: </label>
+							<div>
+								<input type="email" id="settings_email" class="form-control"
+									required="required" />
+								<p class="help-block">
+									<span class=""> Enter a valid Email address </span>
+								</p>
+							</div>
+
+						</div>
+						<div class="form-group">
+							<label for="settings_password"> Password of the above
+								Email id: </label>
+							<div>
+								<input type="password" id="settings_password"
+									class="form-control" required="required" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="account_access_type"> Account Access Type: </label>
+							<div>
+								<input type="text" id="account_access_type" class="form-control"
+									required="required" />
+								<p class="help-block">For example, POP3 or IMAP</p>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="incoming_email_server"> Incoming Email
+								Server: </label>
+							<div>
+								<input type="text" id="incoming_email_server"
+									class="form-control" required="required" />
+								<p class="help-block">For example, "pop.gmail.com"</p>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="outgoing_email_server"> Outgoing Email
+								Server: </label>
+							<div>
+								<input type="text" id="outgoing_email_server"
+									class="form-control" required="required" />
+								<p class="help-block">For example, "smtp.gmail.com"</p>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="incoming_email_port"> Incoming Email Port: </label>
+							<div>
+								<input type="text" id="incoming_email_port" class="form-control"
+									required="required" />
+								<p class="help-block">For example, incoming email port for
+									gmail service is: 995</p>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="outgoing_email_port"> Outgoing Email Port: </label>
+							<div>
+								<input type="text" id="outgoing_email_port" class="form-control"
+									required="required" />
+								<p class="help-block">For example, outgoing email port for
+									gmail service is: 465</p>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for=""> Requires SSL </label>
+							<div>
+								<input type="checkbox" id="requires_ssl" value="true">
+								<p class="help-block">SSL stands for Secure Socket Layer</p>
+							</div>
+						</div>
+						<div class="form-group">
+							<div>
+								<input type="button" class="btn btn-lg btn-primary btn-block"
+									id="addAccount" onclick="invokeAddAccount()"
+									value="Add Email Account">
+							</div>
+						</div>
+						<div>
+							<div id="settings_result" class="text-danger login"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div id="messages">
+				<div id="error">You have no message to display</div>
+				
+					<table id="emails_table" class="table">
+
+					</table>
+				
+				</div>
+			</div>
+			<button id="logout" type="button" onclick="logout()">Logout</button>
+		</section>
+		<footer> </footer>
+	</div>
+	<script>
+		//when the document loads
+		$(function() {
+			if (!localStorage.getItem("accessToken")) { //check if the user is not logged in
+				$("#home").hide();
+				$("#login").show();
+				getMessage(); //for accessing verification link
+			} else {
+				$(function() {
+				    $( "#accordion" ).accordion({
+					active: false,
+				      heightStyle: "content",
+					  collapsible: true
+				    });
+				  });
+				invokeMailCheck();
+			}
+		});
+	</script>
+
+</body>
+
+</html>
