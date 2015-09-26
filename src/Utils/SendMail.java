@@ -19,7 +19,7 @@ public class SendMail {
 		String from="amitashukla0906@gmail.com";
 		String host = "smtp.gmail.com";
 		 final String username = "amitashukla0906@gmail.com";
-		 final String password = "asit,s9!";
+		 final String password = "*******";
 		//Properties properties = System.getProperties();
 		//properties.setProperty("mail.smtp.host", host);
 		 
