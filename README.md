@@ -5,7 +5,8 @@ A single page application rendering all emails of the users' multiple email acco
 JAVA, Singleton Design Pattern, JavaMail API
 ##UI: 
 HTML, JavaScript, AJAX, JQuery, Bootstrap
-##REST based Web Services
+##REST based Web Services:
+Jersey framework
 ##Database:
 MySQL
 
@@ -13,6 +14,7 @@ MySQL
 Eclipse (Java Enterprise Edition)  
 MySql   
 Libraries:   
+mysql-connector-java-5.1.31-bin.jar
 activation.jar   
 javax.mail.jar  
 commons-codec-1.10.jar   
