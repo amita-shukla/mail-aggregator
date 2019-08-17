@@ -5,8 +5,8 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String name = "tanu";
-		String email = "curiouscurie0906@gmail.com";
-		String password = "mathematics90";
+		String email = "";
+		String password = "";
 		String confirmPassword = "java90";
 		String accountAccessType = "pop3";
 		String incoming_email_server = "pop.gmail.com";
